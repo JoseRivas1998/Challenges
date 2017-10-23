@@ -14,11 +14,7 @@ public class LongString {
         Map<Character, Integer> occurrences = new LinkedHashMap<>();
         for(int i = 0; i < longString.length(); i++) {
             char cha = longString.charAt(i);
-            if(occurrences.containsKey(cha)) {
-                occurrences.put(cha, occurrences.get(cha) + 1);
-            } else {
-                occurrences.put(cha, 1);
-            }
+            occurrences.put(cha, occurrences.containsKey(cha) ? occurrences.get(cha) + 1 : 1);
         }
         List<Character> characters = new ArrayList<>(occurrences.keySet());
         Collections.sort(characters, (o1, o2) -> {
